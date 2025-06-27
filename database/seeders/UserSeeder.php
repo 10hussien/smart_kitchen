@@ -29,8 +29,6 @@ class UserSeeder extends Seeder
 
                 'password' => Hash::make('123123123'),
 
-                'role' => 'owner'
-
             ],
 
             [
@@ -46,7 +44,7 @@ class UserSeeder extends Seeder
 
                 'password' => Hash::make('123123123'),
 
-                'role' => 'teacher'
+
 
             ],
 
@@ -63,7 +61,7 @@ class UserSeeder extends Seeder
 
                 'password' => Hash::make('123123123'),
 
-                'role' => 'teacher'
+
 
             ],
 
@@ -80,7 +78,7 @@ class UserSeeder extends Seeder
 
                 'password' => Hash::make('123123123'),
 
-                'role' => 'student'
+
 
             ],
 
@@ -97,7 +95,7 @@ class UserSeeder extends Seeder
 
                 'password' => Hash::make('123123123'),
 
-                'role' => 'student'
+
 
             ],
 
