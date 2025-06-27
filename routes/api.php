@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\FamilyProfile;
+use App\Http\Controllers\FamilyProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware("auth:sanctum")->group(function () {
-    Route::post('/addProfile', [FamilyProfile::class, 'addProfile']);
-    Route::post('/updateProfile', [FamilyProfile::class, 'updateProfile']);
-    Route::get('/showProfile', [FamilyProfile::class, 'showProfile']);
-    Route::delete('/destroyProfile', [FamilyProfile::class, 'destroyProfile']);
+    Route::post('/addFamilyProfile', [FamilyProfileController::class, 'addFamilyProfile']);
+    Route::post('/updateFamilyProfile', [FamilyProfileController::class, 'updateFamilyProfile']);
+    Route::get('/showFamilyProfile', [FamilyProfileController::class, 'showFamilyProfile']);
+    Route::delete('/destroyFamilyProfile', [FamilyProfileController::class, 'destroyFamilyProfile']);
 });

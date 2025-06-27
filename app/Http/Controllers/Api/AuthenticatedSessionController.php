@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
         $user = $request->user();
 
         $user->tokens()->delete();
-        $token = $user->createToken('skill_stream');
+        $token = $user->createToken('smart_kitchen');
 
         return response()->json([
             'Token' => $token->plainTextToken,
