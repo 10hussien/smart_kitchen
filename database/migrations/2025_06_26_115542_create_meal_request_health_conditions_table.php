@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('meal_request_health_conditions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('meal_request_id')->constrained()->onDelete('cascade');
+            $table->foreignId('health_condition_id')->constrained()->onDelete('cascade');
+            $table->integer('affected_people_count')->nullable();
             $table->timestamps();
         });
     }

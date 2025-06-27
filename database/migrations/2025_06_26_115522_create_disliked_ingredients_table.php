@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('disliked_ingredients', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('family_profile_id')->constrained()->onDelete('cascade');
+            $table->foreignId('ingredient_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

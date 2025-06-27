@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Chat extends Model
+class FamilyProfile extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'sender_id',
-        'receiver_id',
-        'message',
-        'seen'
+        'user_id',
+        'number_of_people'
     ];
 
-    public function sender()
+    public function user()
     {
-        $this->belongsTo(User::class, 'sender_id', 'id');
+        return $this->belongsTo(User::class);
     }
 }

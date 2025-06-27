@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('meal_requests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('family_profile_id')->constrained()->onDelete('cascade');
+            $table->string('meal_type');
+            $table->integer('number_of_people')->nullable();
+            $table->boolean('customized')->default(false);
+            $table->timestamp('request_time');
             $table->timestamps();
         });
     }

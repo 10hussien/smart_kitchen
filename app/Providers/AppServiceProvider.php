@@ -19,8 +19,5 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        Teacher::observe(ApprovedTeacher::class);
-    }
+    public function boot(): void {}
 }

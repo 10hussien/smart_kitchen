@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('suggested_meals', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('meal_request_id')->constrained()->onDelete('cascade');
+            $table->foreignId('meal_id')->constrained()->onDelete('cascade');
+            $table->string('match_score')->nullable();
             $table->timestamps();
         });
     }
