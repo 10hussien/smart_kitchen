@@ -10,7 +10,8 @@ return new class extends Migration
     {
         Schema::create('health_conditions', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name')->unique();
+            $table->boolean('is_approved')->default(false);
             $table->timestamps();
         });
     }

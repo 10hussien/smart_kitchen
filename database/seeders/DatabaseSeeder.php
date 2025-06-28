@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         // هنا تضيف الـ Seeders التي تريد تشغيلها
         $this->call([
             UserSeeder::class,
+            HealthConditionSeeder::class,
         ]);
     }
 }

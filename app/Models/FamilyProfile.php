@@ -17,4 +17,9 @@ class FamilyProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function healthConditions()
+    {
+        return $this->belongsToMany(HealthCondition::class, 'family_health_conditions');
+    }
 }
