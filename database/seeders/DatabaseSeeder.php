@@ -11,10 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // هنا تضيف الـ Seeders التي تريد تشغيلها
         $this->call([
             UserSeeder::class,
             HealthConditionSeeder::class,
+            IngredientSeeder::class,
+            IngredientAliasSeeder::class
         ]);
     }
 }

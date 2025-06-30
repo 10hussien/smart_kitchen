@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FamilyProfileController;
 use App\Http\Controllers\HealthConditionController;
+use App\Http\Controllers\IngredientController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware("auth:sanctum")->group(function () {
@@ -21,5 +22,22 @@ Route::middleware('auth:sanctum')->group(function () {
     // ✅ للأدمن فقط
     Route::middleware('is.admin')->group(function () {
         Route::post('/admin/health-conditions/{id}/approve', [HealthConditionController::class, 'approveCondition']);
+    });
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    // ✅ للمستخدم العادي
+    Route::get('/ingredients/showallIng', [IngredientController::class, 'showallIng']);               // عرض كل المكونات
+    Route::get('/ingredients/searchIng', [IngredientController::class, 'searchIng']);       // بحث عن مكون
+    Route::get('/ingredients/showIng/{id}', [IngredientController::class, 'showIng']);           // عرض مكون محدد بالتفصيل
+    Route::post('/ingredients/addIng', [IngredientController::class, 'addIng']);              // إضافة مكون جديد
+    Route::post('/ingredient-aliases/addAlias', [IngredientController::class, 'addAlias']); // إضافة alias
+
+    // Routes خاصة بالمدير (تحتاج صلاحيات admin)
+    Route::middleware('is.admin')->group(function () {
+        Route::post('/ingredients/updateIng/{id}', [IngredientController::class, 'updateIng']);     // تعديل مكون
+        Route::delete('/ingredients/destroyIng/{id}', [IngredientController::class, 'destroyIng']); // حذف مكون
+
+        // إدارة aliases
     });
 });
