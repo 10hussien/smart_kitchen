@@ -34,6 +34,7 @@ Route::middleware(['auth:sanctum', 'setapplang'])->group(function () {
         ->name('verification.send');
 });
 
+
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth:sanctum')
     ->name('logout');

@@ -11,10 +11,10 @@ return new class extends Migration
     {
         Schema::create('fridge_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('family_profile_id')->constrained()->onDelete('cascade');
             $table->foreignId('ingredient_id')->constrained()->onDelete('cascade');
             $table->string('quantity')->default(0);
-            $table->string('expiration_date')->nullable();
+            $table->date('expiration_date')->nullable();
             $table->timestamps();
         });
     }
